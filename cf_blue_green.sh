@@ -22,7 +22,6 @@ CURRENTPATH=$(pwd)
 
 #export PATH=/usr/local/ssl/bin:$PATH
 
-#openssl version -v 
 #curl --version
 ###########
 #cd $CURRENTPATH
