@@ -1,0 +1,30 @@
+language: node_js
+node_js:
+  - stable
+before_install:
+  - chmod +x ./cf_blue_green_travis.sh
+  - chmod +x ./cf_blue_green.sh
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install g++-4.8
+sudo: required
+env:
+  - CXX=g++-4.8
+services:
+  - mongodb
+env:
+   global:
+   - CXX=g++-4.8
+   - CF_APP=sentimentAnalysisi048564   
+   - CF_API=$CF_API  
+   - CF_USERNAME=$CF_USERNAME
+   - CF_PASSWORD=$CF_PASSWORD
+   - CF_ORGANIZATION=$CF_ORGANIZATION
+   - CF_SPACE=$CF_SPACE
+before_deploy: npm install -g cf-blue-green
+  deploy:
+     provider: script
+     script: cf-blue-green-travis
+     on:
+      branch: CICD_Travis
+script: ./cf_blue_green_travis.sh

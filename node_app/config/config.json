@@ -1,0 +1,14 @@
+{
+"mongo_ip":"10.11.241.33:60986",
+"mongo_username": "pjUxi0RzjHPIJ2DP",
+"mongo_dbname": "yJLrsS7dukruc3VB",
+"mongo_password": "x3-s-nsIs7xBj4pT",
+"mongo_url_local": "mongodb://localhost:27017",
+"client_id":"FHxtEplaGsNXemIIKYGjMKq9F4oEaCZS",
+"client_secret":"zkD83iDJVg58H1rf",
+"oauth_url":"https://api.beta.yaas.io/hybris/oauth2/v1/token",
+"sentiment_service":"https://api.beta.yaas.io/sap/ta-sentiments/v1",
+"proxy_enabled":"false",
+"proxy":"http://proxy:8080",
+"use_yaas":"true"
+}

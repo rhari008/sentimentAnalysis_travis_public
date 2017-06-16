@@ -1,0 +1,14 @@
+{
+   "welcomeFile": "/",
+    "routes": [
+      {
+        "source": "^/",
+        "target": "/",
+        "destination": "application",
+		"scope": {
+      		"GET": ["$XSAPPNAME.Display", "$XSAPPNAME.Update"],
+      		"default": "$XSAPPNAME.Update"
+    	}
+      }]
+}
+     

@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "6.9.1"
+services:
+  - mongodb
+sudo: true
+env:
+   global:
+   - CF_APP=sentimentAnalysis   
+   - CF_API=$CF_API  
+   - CF_USERNAME=$CF_USERNAME
+   - CF_PASSWORD=$CF_PASSWORD
+   - CF_ORGANIZATION=$CF_ORG
+   - CF_SPACE=$CF_SPACE
+before_deploy: npm install -g cf-blue-green
+deploy:
+    provider: script
+    script: cf-blue-green-travis
+    on:
+     branch: dev
+

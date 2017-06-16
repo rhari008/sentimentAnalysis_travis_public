@@ -1,0 +1,138 @@
+extends layout
+
+block content
+  script(src='https://code.jquery.com/jquery-1.7.1.min.js')
+  script.
+    $(document).ready(function() {
+     switch(document.getElementById("ratings").value){
+      case "1":
+       img1Click()
+       break;
+      case "2":
+       img2Click()
+       break;
+      case "3":
+       img3Click()
+       break;
+      case "4":
+       img4Click()
+       break;
+      case "5":
+       img5Click()
+       break;                            
+      }
+    });
+    var wstar = "/wstar.png";
+    var gstar = "/gstar.png";
+    var rstar = "/rstar.png";    
+    function checkstar()
+    {
+     if(document.getElementById("ratings").value != "")
+      alert('Not empty');
+    }
+    function img1Click() {
+     clearborder();
+     document.getElementById("rate1").src = gstar;
+     document.getElementById("rate2").src = wstar;
+     document.getElementById("rate3").src = wstar;
+     document.getElementById("rate4").src = wstar;
+     document.getElementById("rate5").src = wstar;               
+     document.getElementById("ratings").value = "1";
+    }
+    function img2Click() {
+     document.getElementById("rate1").src = gstar;
+     document.getElementById("rate2").src = gstar;
+     document.getElementById("rate3").src = wstar;
+     document.getElementById("rate4").src = wstar;
+     document.getElementById("rate5").src = wstar;          
+     document.getElementById("ratings").value = "2";
+    }
+    function img3Click() {
+     document.getElementById("rate1").src = gstar;
+     document.getElementById("rate2").src = gstar;
+     document.getElementById("rate3").src = gstar;
+     document.getElementById("rate4").src = wstar;
+     document.getElementById("rate5").src = wstar;     
+     document.getElementById("ratings").value = "3";
+    }
+    function img4Click() {
+     document.getElementById("rate1").src = gstar;
+     document.getElementById("rate2").src = gstar;
+     document.getElementById("rate3").src = gstar;
+     document.getElementById("rate4").src = gstar;
+     document.getElementById("rate5").src = wstar;
+     document.getElementById("ratings").value = "4";
+    }
+    function img5Click() {
+     document.getElementById("rate1").src = gstar;
+     document.getElementById("rate2").src = gstar;
+     document.getElementById("rate3").src = gstar;
+     document.getElementById("rate4").src = gstar;
+     document.getElementById("rate5").src = gstar;
+     document.getElementById("ratings").value = "5";
+    }  
+    function validateform() {
+     if (document.getElementById("name").value == "")
+     {
+     	alert('Enter valid name');
+     	document.getElementById("name").placeholder = "Enter your name here";
+     	document.getElementById("name").className += " formInvalid";
+     	return false;
+     }
+     if (document.getElementById("ratings").value == "")
+     {
+     	alert('Please rate the session');
+     	document.getElementById("rate1").src=rstar;
+     	document.getElementById("rate2").src=rstar;
+     	document.getElementById("rate3").src=rstar;
+     	document.getElementById("rate4").src=rstar;
+     	document.getElementById("rate5").src=rstar;
+     	return false;
+     }     	
+    }
+    function clearborder(){
+     document.getElementById("rate1").src=wstar;
+     document.getElementById("rate2").src=wstar;
+     document.getElementById("rate3").src=wstar;
+     document.getElementById("rate4").src=wstar;
+     document.getElementById("rate5").src=wstar;
+    }
+    function ownerselect(){
+     var select = document.getElementById("selectpicker");
+     document.getElementById("owner").value = select.options[select.selectedIndex].value;
+     document.getElementById("session").value = select.options[select.selectedIndex].text;
+    }
+  - var wstar = "wstar.png"
+  h1 Feedback
+  p Please provide your valuable feedback
+  form(action='/updateratings',method='post' onsubmit="return validateform();")
+   <br>
+   | Your Employee ID: 
+   input(type='text', name='empId' id='empId' )
+   <br><br>
+   | Your Nick name:                                       
+   input(type='text', name='name' id='name' )
+   <br><br>
+   | Session  
+   select(name="selectpicker" onchange="ownerselect();" id="selectpicker")  
+    option(name="session1" value="Mike" selected="true") Nodejs on Cloud Foundry 
+    option(name="session2" value="Johnson") Java on Cloud Foundry
+    option(name="session3" value="Steward") SAP HCP Essentials
+   |  by   
+   input(id="owner" name="owner" readonly="readonly" value="Mike")
+   input(id="session" name="session" type="hidden" value="Nodejs on Cloud Foundry")     
+   <br><br><br>
+   | Please rate the session: 
+   img(onclick="img1Click()" id="rate1" height = "40" width="40" src="#{wstar}" align = "middle")
+   img(onclick="img2Click()" id="rate2" height = "40" width="40" src="#{wstar}" align = "middle")
+   img(onclick="img3Click()" id="rate3" height = "40" width="40" src="#{wstar}" align = "middle")
+   img(onclick="img4Click()" id="rate4" height = "40" width="40" src="#{wstar}" align = "middle")
+   img(onclick="img5Click()" id="rate5" height = "40" width="40" src="#{wstar}" align = "middle")
+   <br><br>
+   input(type='hidden' name='ratings' id='ratings')
+   <br><br>
+   | Please enter your comments
+   <br><br>
+   textarea(type='text' name='comments' id='comments' cols="70")
+   <br><br>
+   input(type='submit' value='Submit Feedback')

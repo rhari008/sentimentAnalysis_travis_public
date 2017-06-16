@@ -1,0 +1,28 @@
+---
+applications:
+- name: sentimentAnalysisi048564
+  memory: 256M
+  path: node_app
+  buildpack: nodejs_buildpack
+  services:
+  - MyMongo
+- name: approuter
+  host: approuteri048564
+  path: src/main/approuter
+  buildpack: nodejs_buildpack
+  memory: 128M
+  env:
+    destinations: >
+      [
+        {
+          "name": "application",
+          "url": "https://sentimentAnalysisi048564.cfapps.us20.hana.ondemand.com",
+          "forwardAuthToken": true
+        }
+      ]
+    login: {
+      "callbackEndpoint":"/"
+    }
+    TENANT_HOST_PATTERN: "^(.*)-approuter.cfapps.sap.hana.ondemand.com"
+  services:
+  - MyUAA

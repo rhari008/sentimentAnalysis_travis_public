@@ -1,0 +1,32 @@
+{
+  "xsappname": "sentimentAnalysisi048564",
+  "identityzone":"i048564trial",
+  "tenant-mode":"shared",
+   "scopes"        : [
+                        {
+                          "name"                 : "$XSAPPNAME.Display",
+                          "description"          : "Display Users"
+                        },
+                        {
+                          "name"                 : "$XSAPPNAME.Update",
+                          "description"          : "Update Users"
+                        }
+                      ],
+    "role-templates": [
+						{
+						  "name"                 : "Viewer",
+						  "description"          : "View Users",
+						  "scope-references"     : [
+														"$XSAPPNAME.Display"             
+												   ]                                            
+						},
+						{
+						  "name"                 : "Manager",
+						  "description"          : "Maintain Users",
+						  "scope-references"     : [
+														"$XSAPPNAME.Display",             
+														"$XSAPPNAME.Update"             
+												   ]                                            
+						}
+	]
+}

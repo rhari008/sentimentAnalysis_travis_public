@@ -1,0 +1,92 @@
+extends layout
+
+block content
+  script(src='https://code.jquery.com/jquery-1.7.1.min.js')
+  style(type='text/css').
+   table, td, th{
+    border: 1px solid black;
+   }
+   td img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   }
+  script.
+   $(document).ready(function() {
+   
+    if('#{nCount}' != 0){
+     document.getElementById("nCount").innerHTML = '#{nCount}';
+     document.getElementById("nTotal").innerHTML = '<img src="'+getImage('#{nTotal}')+' " height = "40" width="40" style="text-align:center; vertical-align:middle;"/>';
+    }
+    
+    if('#{jCount}' != 0){
+     document.getElementById("jCount").innerHTML = '#{jCount}';    
+     document.getElementById("jTotal").innerHTML = '<img src="'+getImage('#{jTotal}')+' " height = "40" width="40" style="text-align:center; vertical-align:middle;"/>';
+    }
+    
+    if('#{sCount}' != 0){
+     document.getElementById("sCount").innerHTML = '#{sCount}';
+     document.getElementById("sTotal").innerHTML = '<img src="'+getImage('#{sTotal}')+' " height = "40" width="40" style="text-align:center; vertical-align:middle;"/>';
+    }
+    document.getElementById("senticon").src = getImage('#{ratings}');
+    
+   });
+   
+   function getImage(ratings)
+   {
+    var image;
+    switch(ratings){     
+     case '2':
+      image = "vgood.png";
+      break;
+     case '1':
+      image = "good.png";
+      break;
+     case '0':
+      image = "neutral.png";
+      break;
+     case '-1':
+      image ="bad.png";
+      break;      
+     case '-2':
+      image = "vbad.png";
+      break;      
+    }
+    return image;
+   }
+   
+  h1 Feedback updated successfully
+ 
+  | Summary of feedbacks received so far
+  <br><br>
+ 
+  | Total number of feedbacks received so far : 
+  
+  <b> #{count} </b>
+  <br><br>
+  
+  
+  | Overall reaction and sentiment 
+   
+  img(id='senticon' name='senticon' height = "40" width="40" align = "middle")
+  
+  <br><br><br>
+  
+  div
+  table
+   tr
+    th Session
+    th Total Feedback Count
+    th Feedback
+   tr
+    td Nodejs on Cloud Foundry
+    td(id='nCount', name='nCount') 
+    td(id='nTotal', name='nTotal')  
+   tr
+    td Java on Cloud Foundry
+    td(id='jCount', name='jCount') 
+    td(id='jTotal', name='jTotal')  
+   tr
+    td SAP HCP Essentials
+    td(id='sCount', name='sCount') 
+    td(id='sTotal', name='sTotal')  
