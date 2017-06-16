@@ -21,10 +21,4 @@ env:
    - CF_PASSWORD=$CF_PASSWORD
    - CF_ORGANIZATION=$CF_ORGANIZATION
    - CF_SPACE=$CF_SPACE
-before_deploy: npm install -g cf-blue-green
-deploy:
-  provider: script
-  script: cf-blue-green-travis
-  on:
-    branch: master
 script: ./cf_blue_green_travis.sh

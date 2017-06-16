@@ -16,7 +16,7 @@ echo "deb http://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/a
 sudo apt-get update
 sudo apt-get install cf-cli
 
-echo $CF_API 
+echo $CF_API
 echo $CF_ORGANIZATION
 echo $CF_SPACE
 echo $CF_USERNAME
