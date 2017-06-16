@@ -30,6 +30,6 @@ pushd `dirname $0` > /dev/null
 SCRIPTPATH=`pwd`
 popd > /dev/null
 
-sudo $SCRIPTPATH/cf_blue_green.sh $CF_APP approuter #Pass the app names
+sudo $SCRIPTPATH/cf_blue_green.sh $CF_APP approuteri048564 #Pass the app names
 
 cf logout

@@ -97,11 +97,12 @@ cf push -f $MANIFEST
 
 #curl -2 -I "https://${GREEN}.${DOMAIN}" 
 #curl -3 -I "https://${GREEN}.${DOMAIN}" 
-url="\"https://${GREEN}.${DOMAIN}\""
-echo $url
+GREENURL="https://${GREEN}.${DOMAIN}"
+GREEN2URL="https://${GREEN2}.${DOMAIN}"
 
 curl --version
-curl --fail -I -k https://sentimentAnalysisi048564-B.cfapps.us20.hana.ondemand.com #--tlsv1 
+curl --fail -I -k $GREENURL
+curl --fail -I -k $GREEN2URL
 
 # add the GREEN application to each BLUE route to be load-balanced
 # TODO this output parsing seems a bit fragile...find a way to use more structured output
