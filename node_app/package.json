@@ -26,5 +26,9 @@
     "supertest":"latest",
     "mocha": "latest",
     "passport":"latest"
-  }
+  },
+    "engines" : {
+    "node" : "6.11.3",
+    "npm" : "3.0.0"
+   }
 }
