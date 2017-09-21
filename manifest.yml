@@ -3,7 +3,7 @@ applications:
 - name: sentimentAnalysisi048564
   memory: 256M
   path: node_app
-  buildpack: nodejs_buildpack
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
   services:
   - MyMongo
 - name: approuter
