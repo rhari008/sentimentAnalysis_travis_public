@@ -98,6 +98,9 @@ router.get('/summary', function(req, res, next) {
 		if (nTotal > 2 ) nTotal =2;
 		if (jTotal > 2 ) jTotal =2;
 		if (sTotal > 2 ) sTotal =2;
+		if (nTotal < -2 ) nTotal =-2;
+		if (jTotal < -2 ) jTotal =-2;
+		if (sTotal < -2 ) sTotal =-2;
 		
 		var overallSentiment = Math.round(total / counter);
 		console.log('Total : '+ overallSentiment);
